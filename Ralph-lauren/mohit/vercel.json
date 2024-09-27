@@ -1,7 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)", 
+      "source": "/(css|js|assets)/(.*)",
+      "destination": "/parichay/polo/$1/$2"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/"
     }
   ],
@@ -9,9 +13,9 @@
     {
       "source": "/css/(.*)",
       "headers": [
-        { 
-          "key": "Cache-Control", 
-          "value": "public, max-age=31536000, immutable" 
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }
