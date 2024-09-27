@@ -2,7 +2,7 @@
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "./parichay/polo/index.html", "use": "@vercel/static" },
-    { "src": "style.css", "use": "@vercel/static" },
+    { "src": "/css/style.css", "use": "@vercel/static" },
     { "src": "script.js", "use": "@vercel/static" },
     { "src": "img/*", "use": "@vercel/static" }
   ],
@@ -18,7 +18,7 @@
       "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
     },
     {
-      "source": "/style.css",
+      "source": "/css/style.css",
       "headers": [{ "key": "Content-Type", "value": "text/css" }]
     },
     {
