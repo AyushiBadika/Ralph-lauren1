@@ -1,7 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/mohit/index.html" },
-    { "source": "/parichay/polo", "destination": "/parichay/polo/index.html" },
-    { "source": "/parichay/polo/", "destination": "/parichay/polo/index.html" }
-  ]
+  "rewrites": [{ "source": "/", "destination": "/mohit/index.html" }],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
