@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple Label</title>
+    <link rel="icon" href="./assets/icon.jpg">
+    <link rel="stylesheet" href="./style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.9/dist/css/splide.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.9/dist/js/splide.min.js"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .splide__slide {
+      position: relative;
+    }
+
+    /* Fullscreen video */
+    video {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Text overlay styling */
+    .overlay-1 {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 600px;
+      gap: 20px;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      gap: 20px;
+      font-size: 2rem;
+      z-index: 10;
+    }
+
+    /* Navigation buttons styling */
+    .splide__arrow {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 20;
+    }
+    .overlay-1 p{
+        font-family: BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: x-large;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 10px;
+        width: 600px;
+
+
+    }
+    
+    .overlay-1 a{
+        font-family: BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: x-small;
+        font-weight: 600;
+        font-family: sans-serif;
+        color: rgb(255, 255, 255);
+        text-underline-offset: 12px;
+    }
+
+    /* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .overlay-1 {
+        width: 90%; /* Reduce width for smaller screens */
+        font-size: 1.5rem; /* Decrease font size */
+        gap: 15px; /* Adjust gap */
+    }
+
+    .overlay-1 p {
+        font-size: large; /* Adjust paragraph font size */
+        letter-spacing: 5px; /* Reduce letter spacing */
+    }
+
+    .overlay-1 a {
+        font-size: small; /* Adjust link font size */
+    }
+
+    /* Make the video take up the full width */
+    video {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .overlay-1 {
+        width: 90%; /* Further reduce width */
+        top: 70%; /* Adjust position */
+        gap: 10px; /* Further reduce gap */
+    }
+
+    .overlay-1 p {
+        font-size: medium; /* Further decrease paragraph font size */
+        letter-spacing: 3px; /* Further reduce letter spacing */
+    }
+
+    .overlay-1 a {
+        font-size: x-small; /* Further adjust link font size */
+    }
+
+    /* Ensure video is still responsive */
+    video {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay-1 {
+        font-size: 1rem; /* Reduce font size for mobile */
+        gap: 5px; /* Further reduce gap */
+    }
+
+    .overlay-1 p {
+        font-size: small; /* Adjust paragraph font size */
+    }
+
+    .overlay-1 a {
+        font-size: xx-small; /* Adjust link font size */
+    }
+
+    /* Fullscreen video for mobile */
+    video {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+
+
+    .touch {
+      width: 100%;
+      margin: 0 auto; /* Center the container horizontally */
+    }
+    .splide__slide ul{
+      display: flex;
+      gap: 2px;
+    }
+    .splide__slide img {
+      width: 100%;
+      height: auto;
+      position: relative;
+      margin-right: 10px;
+    }
+
+    .text-overlay {
+      position: absolute;
+      bottom: 5%;
+      left: 120px;
+      color: white;
+      padding: 5px 10px;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+    }
+
+    .splide__arrow {
+      background-color: #c5c5c5;
+      border-radius: 50%;
+      padding: 10px;
+      color: white;
+      border: none;
+      font-size: x-large;
+    }
+    
+
+  </style>
+
+
+</head>
+<body>
+
+  <header></header>
+    <nav>
+        <a href="https://www.ralphlauren.global/in/en">
+            <h1>RALPH LAUREN</h1>
+        </a>
+        <div class="nav-links">
+            <div class="nav-dropdown">
+                <a href="https://www.ralphlauren.global/in/en/men/10" class="drop-btn">MEN</a>
+                <div class="dropdown-content">
+                    <div class="dropdown">
+                        <div class="dropdown-left">
+                            <div class="drop-link">
+                                <div class="sub-drop">
+                                    <div id="h1" class="click">
+                                        <h4>Brands</h4>
+                                        <div class="side" id="s11">
+                                            <div id="h1n" class="inner-box">
+                                                <h5>MEN'S BRANDS</h5>
+                                                <!-- add class in hr -->
+                                                <hr class="hr-line" >
+                                                <div id="h1n-inside">
+                                                    <div class="h1n-images" id="h1n1"></div>
+                                                    <div class="h1n-images" id="h1n2"></div>
+                                                    <div class="h1n-images" id="h1n3"></div>
+                                                    <div class="h1n-images" id="h1n4"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div id="h2" class="click">
+                                        <h4>Explore</h4>
+                                        <!-- <div class="side" id="s12" >
+                                            <div id="h2n" class="inner-box">
+                                                <h5>Explore</h5>
+                                            <hr class="hr-line">                                                     <div id="h2n-inside">
+                                                 <div class="text-cont">
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">New Arrivals</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Purple Label</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Fleece Shop</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Autumn Style</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Wear To Work</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Corduroy Shop</a>
+                                                 </div>
+                                                 <div id="h2n-inside-img">
+                                                    <div class="h1n-images" id="h1n1"></div>
+                                                    <div class="h1n-images" id="h1n2"></div>
+                                                    <div class="h1n-images" id="h1n3"></div>
+                                                </div>
+                                                </div> 
+                                            </div>
+                                        </div> -->
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Clothing</h4>
+                                        <!-- <div class="side" id="s13" >
+                                            <div id="h3n" class="inner-box">
+                                                <h5>Clothing</h5>
+                                            <hr class="hr-line">                                                     <div id="h3n-inside">
+                                                 <div class="text-cont">
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">New Arrivals</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Purple Label</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Fleece Shop</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Autumn Style</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Wear To Work</a>
+                                                    <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Corduroy Shop</a>
+                                                 </div>
+                                                
+                                                </div> 
+                                            </div>
+                                        </div> -->
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Accessories</h4> 
+                                    </div>
+
+                                    <div id="h3" class="click">
+                                        <h4>Shoes</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Big & Tall</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Polo Bear Shop</h4> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="https://www.ralphlauren.global/in/en/men/10" class="drop-btn">WOMEN</a>
+                <div class="dropdown-content">
+                    <div class="dropdown">
+                        <div class="dropdown-left">
+                            <div class="drop-link">
+                                <div class="sub-drop">
+                                    <div id="h1" class="click">
+                                        <h4>Brands</h4>
+                                        <div class="side" id="s11">
+                                            <div id="h1n" class="inner-box">
+                                                <h5>Women's</h5>
+                                                <!-- add class in hr -->
+                                                <hr class="hr-line" >
+                                                <div id="h1n-inside">
+                                                    <div class="h1n-images" id="h1n5"></div>
+                                                    <div class="h1n-images" id="h1n6"></div>
+                                                    <div class="h1n-images" id="h1n7"></div>
+                                                    <div class="h1n-images" id="h1n8"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div id="h2" class="click">
+                                        <h4>Explore</h4>
+                                       
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Clothing</h4>
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Bags</h4> 
+                                    </div>
+
+                                    <div id="h3" class="click">
+                                        <h4>Accessories</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Shoes</h4> 
+                                    </div>
+
+                                    <div id="h3" class="click">
+                                        <h4>Lauren Curve</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Lauren Petite</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Polo Bear Shop</h4> 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="https://www.ralphlauren.global/in/en/men/10" class="drop-btn">KIDS</a>
+                <div class="dropdown-content">
+                    <div class="dropdown">
+                        <div class="dropdown-left">
+                            <div class="drop-link">
+                                <div class="sub-drop">
+                                    <div id="h1" class="click">
+                                        <h4>Explore</h4>
+                                        <div class="side" id="s11">
+                                            <div id="h2n" class="inner-box">
+                                                <h5>Explore</h5>
+                                                <!-- add class in hr -->
+                                                <hr class="hr-line" >
+                                                <div id="h1n-inside">
+                                                    <div class="text-cont">
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">New Arrivals for Boys</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">New Arrivals for Girls</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Icon Shop</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Back To School</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Polo Country for Boys</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Polo Country for Girls</a>
+                                                     </div>
+                                                     <div id="h2n-inside-img">
+                                                        <div class="h1n-images" id="h1n9"></div>
+                                                        <div class="h1n-images" id="h1n10"></div>
+                                                        <div class="h1n-images" id="h1n11"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div id="h2" class="click">
+                                        <h4>Shop by Age Range</h4>
+                                       
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Boys</h4>
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Girls</h4> 
+                                    </div>
+
+                                    <div id="h3" class="click">
+                                        <h4>Baby Boy</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Baby Girl</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Polo Bear Shop</h4> 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="https://www.ralphlauren.global/in/en/men/10" class="drop-btn">HOME</a>
+                <div class="dropdown-content">
+                    <div class="dropdown">
+                        <div class="dropdown-left">
+                            <div class="drop-link">
+                                <div class="sub-drop">
+                                    <div id="h1" class="click">
+                                        <h4>Explore</h4>
+                                        <div class="side" id="s11">
+                                            <div id="h2n" class="inner-box">
+                                                <h5>Explore</h5>
+                                                <!-- add class in hr -->
+                                                <hr class="hr-line" >
+                                                <div id="h1n-inside">
+                                                    <div class="text-cont">
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">New Arrivals</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Seasonal Entertaining</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Modern Driver</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Home Accents</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">The Bedding Shop</a>
+                                                       
+                                                     </div>
+                                                     <div id="h2n-inside-img">
+                                                        <div class="h1n-images" id="h1n12"></div>
+                                                        <div class="h1n-images" id="h1n13"></div>
+                                                        <div class="h1n-images" id="h1n14"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div id="h2" class="click">
+                                        <h4>Brands</h4>
+                                       
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Bedding</h4>
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Bath</h4> 
+                                    </div>
+
+                                    <div id="h3" class="click">
+                                        <h4>Dining</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Décor</h4> 
+                                    </div>
+
+                                    <div id="h3" class="click">
+                                        <h4>Ralph's Coffee</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Ralph Lauren Pet</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Home Services</h4> 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="https://www.ralphlauren.global/in/en/men/10" class="drop-btn">DISCOVER</a>
+                <div class="dropdown-content">
+                    <div class="dropdown">
+                        <div class="dropdown-left">
+                            <div class="drop-link">
+                                <div class="sub-drop">
+                                    <div id="h1" class="click">
+                                        <h4>What's New</h4>
+                                        <div class="side" id="s11">
+                                            <div id="h2n" class="inner-box">
+                                                <h5>What's New</h5>
+                                                <!-- add class in hr -->
+                                                <hr class="hr-line" >
+                                                <div id="h1n-inside">
+                                                    <div class="text-cont">
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Fall 2024 Runway</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Ralph's New York</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">PRL x Naiomi Glasses</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">US Open</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Sporting Life</a>
+                                                        <a href="https://www.ralphlauren.global/in/en/men/10" class="texto">Only Polo</a>
+                                                       
+                                                     </div>
+                                                     <div id="h2n-inside-img">
+                                                        <div class="h1n-images" id="h1n15"></div>
+                                                        <div class="h1n-images" id="h1n16"></div>
+                                                        <div class="h1n-images" id="h1n17"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div id="h2" class="click">
+                                        <h4>Men's Brands</h4>
+                                       
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Women's Brands</h4>
+                                    </div> 
+                                    <div id="h3" class="click">
+                                        <h4>Home Brands</h4> 
+                                    </div>
+
+                                    <div id="h3" class="click">
+                                        <h4>Our Story</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Timeless by Design</h4> 
+                                    </div>
+
+                                    <div id="h3" class="click">
+                                        <h4>Restaurants</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Our Stores</h4> 
+                                    </div>
+                                    <div id="h3" class="click">
+                                        <h4>Inspiration</h4> 
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-link">
+            <div class="right-nav">
+                <i class="ri-search-line"></i>
+                <i class="ri-user-3-line" id="user-form" >
+                    <div class="form-user">
+                        <div class="main-form">
+                            <div id="upper">
+                                <h1 style="font-size: 1.2em ; font-weight: 500; " ><span><i class="ri-user-3-line" style=" color: #968d8d; " ></i></span> &nbsp; Sign In</h1>
+                                <h4  style=" color: #968d8d; font-size: 1em; font-weight: 400; border-bottom: 1px solid  #968d8d ; " >Create Account</h4>
+                            </div>
+                            <form>
+                                <input style=" width: 100%; height: 3vmax; outline: none; font-size: 0.8em; padding: 0 5% ; " type="text" placeholder="EMAIL ADDRESS *" > <br>
+                                <input style=" width: 100%; height: 3vmax; outline: none; font-size: 0.8em; padding: 0 5% ; " type="text" placeholder="PASSWORD *" >
+                                <div style=" margin-top: 2%; display: flex; align-items: center ; justify-content: space-between; " class="forg">
+                                    <h4 style=" color: #968d8d; font-size: 1em; font-weight: 400; border-bottom: 1px solid  #968d8d ; ">Forgot Password?</h4>
+                                    <h4 style=" color: #b1aaaa; font-size: 1em; font-weight: 400; ">*Required</h4>
+                                </div>
+                                <div style=" margin-top: 2% ; display: flex; align-items: start; justify-content: space-between; gap: 5%; " >
+                                    <input type="checkbox" >
+                                    <p style=" color: #b1aaaa; font-size: 0.9em; font-weight: 400; " >Remember me - I want Ralph Lauren to personalise my shopping experience</p>
+                                </div>
+                                <button style=" margin-top: 5%; background-color: #041F3A ; color: white ; cursor: pointer; width: 100%; height: 3vmax; outline: none; font-size: 0.8em; padding: 0 5% ; ">SIGN IN</button>
+                            </form>
+                            <div style=" display: flex; align-items: center; justify-content: center; gap: 2%; "  >
+                                <div style=" width: 10vmax; height: 1px;  background:  #b1aaaa; " ></div>
+                                <h1 style=" color: #b1aaaa; font-size: 1em; font-weight: 400; " >or</h1>
+                                <div style=" width: 10vmax; height: 1px;  background:  #b1aaaa; " ></div>
+                            </div>
+
+                            <div class="img_link">
+                                <div id="img_link1">
+                                    <img src="https://cdn-fsly.yottaa.net/620ab0e7d93140aaa4e17365/www.ralphlauren.global/v~4b.f5/on/demandware.static/Sites-RalphLauren_Global-Site/-/default/dw1b0ef371/images/facebook.svg?yocs=4G_4V_4N_4W_" alt="">
+                                    <h3 style=" color: #b1aaaa; font-size: 0.7em; font-weight: 400; text-transform: uppercase; " >Facebook</h3>
+                                </div>
+                                <div id="img_link1">
+                                    <img src="https://cdn-fsly.yottaa.net/620ab0e7d93140aaa4e17365/www.ralphlauren.global/v~4b.f5/on/demandware.static/Sites-RalphLauren_Global-Site/-/default/dw3baddc1f/images/google.svg?yocs=4G_4V_4N_4W_" alt="">
+                                    <h3 style=" color: #b1aaaa; font-size: 0.7em; font-weight: 400; text-transform: uppercase; " >google</h3>
+                                </div>
+                                <div id="img_link1">
+                                    <img src="https://cdn-fsly.yottaa.net/620ab0e7d93140aaa4e17365/www.ralphlauren.global/v~4b.f5/on/demandware.static/Sites-RalphLauren_Global-Site/-/default/dwf020f141/images/Apple-Icon-Black.svg?yocs=4G_4V_4N_4W_" alt="">
+                                    <h3 style=" color: #b1aaaa; font-size: 0.7em; font-weight: 400; text-transform: uppercase; " >apple</h3>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </i>
+                <i class="ri-heart-line"></i>
+                <i class="ri-shopping-bag-line"></i>
+            </div>
+        </div>
+    </nav> 
+</header>
+
+
+    <!-- curousal -->
+    
+<!-- Splide Slider Container -->
+  <div id="video-slider" class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+
+        <!-- Slide 1 -->
+        <li class="splide__slide">
+          <video autoplay muted loop>
+            <source src="//video.ralphlauren.com/202409/20240917-men-pl-hub-lp/HUB-PL-Fall_NavyEquestrian_15s_Anthem_Hero_1440x720_DSK.mp4" type="video/mp4">
+            
+          </video>
+          <div class="overlay-1">
+            <img src="https://cdn-fsly.yottaa.net/620ab0e7d93140aaa4e17365/www.ralphlauren.global/v~4b.f4/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727334605943/img/Brand_Logo_Library/POLO/2021_ralph_lauren_logo_white.svg?yocs=4G_4J_4V_4W_" alt="" width="1000px">
+            <p>Fall 2024</p>
+            <a href="#">SHOP NOW</a>
+          </div>
+        </li>
+
+        <!-- Slide 2 -->
+        <li class="splide__slide">
+          <video autoplay muted loop>
+            <source src="//video.ralphlauren.com/202408/20240828-purple-label-hub/PL-Fall_Palm Beach_15s_16x9_Hero_1440x720_1.mp4" type="video/mp4">
+           
+          </video>
+          <div class="overlay-1">
+            <img src="https://cdn-fsly.yottaa.net/620ab0e7d93140aaa4e17365/www.ralphlauren.global/v~4b.f4/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727334605943/img/Brand_Logo_Library/POLO/2021_ralph_lauren_logo_white.svg?yocs=4G_4J_4V_4W_" alt="" width="1000px">
+            <p>pre-fall 2024: chapter</p>
+            <a href="#">SHOP NOW</a>
+          </div>
+        </li>
+
+        <!-- Slide 3 -->
+        <li class="splide__slide">
+          <img src="https://cdn-fsly.yottaa.net/620ab0e7d93140aaa4e17365/www.ralphlauren.global/v~4b.f4/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727334605943/img/202408/08292024-eu-m-pl-hub/0828_pl_hub_c01b_img.jpg?yocs=4G_4J_4V_4W_" alt="">
+          <div class="overlay-1">
+            <img src="https://cdn-fsly.yottaa.net/620ab0e7d93140aaa4e17365/www.ralphlauren.global/v~4b.f4/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727334605943/img/Brand_Logo_Library/POLO/2021_ralph_lauren_logo_white.svg?yocs=4G_4J_4V_4W_" alt="" width="1000px">
+            <p>accessories</p>
+            <a href="#">SHOP NOW</a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <!-- <button class="splide__arrow splide__arrow--prev">Previous</button>
+    <button class="splide__arrow splide__arrow--next">Next</button> -->
+  </div>
+
+  <!-- Initialize Splide Slider -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('#video-slider', {
+        type: 'loop',
+        perPage: 1,
+        autoplay: true,
+        interval: 20000,
+      }).mount();
+    });
+  </script>
+
+    <!-- ................. -->
+    <section class="purpleLbel">
+      <div class="contents">
+          <h3>THE WORLD OF PURPLE LABEL</h3>
+          <P>Destinations for timeless classics and seasonal collections</P>
+          <a href="#">SHOP ALL</a>
+      </div>
+
+      <div class="container">
+        <div class="touch">
+          <div id="splide" class="splide">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
+                  <img src="https://www.ralphlauren.global/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727420805069/img/202409/09192024-eu-pl-hub-fall/0917_pl_hub_c02a_img.jpg" alt="Photo 1">
+                  <div class="text-overlay">shop all</div>
+                </li>
+                <li class="splide__slide">
+                  <img src="https://www.ralphlauren.global/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727420805069/img/202408/08292024-eu-m-pl-hub/0828_pl_hub_m_c02b_img.jpg" alt="Photo 2">
+                  <div class="text-overlay">icons</div>
+                </li>
+                <li class="splide__slide">
+                  <img src="https://www.ralphlauren.global/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727420805069/img/202408/08292024-eu-m-pl-hub/0828_pl_hub_c02c_img.jpg" alt="Photo 3">
+                  <div class="text-overlay">accessories</div>
+                </li>
+                <li class="splide__slide">
+                  <img src="https://www.ralphlauren.global/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727420805069/img/202404/04112024-eu-m-pl-hub/0411_pl_hub_c02c_img.jpg" alt="Photo 4">
+                  <div class="text-overlay">formalwear</div>
+                </li>
+                <li class="splide__slide">
+                  <img src="https://www.ralphlauren.global/on/demandware.static/-/Library-Sites-RalphLauren_EU_Library/en_IN/v1727420805069/img/202404/04112024-eu-m-pl-hub/0411_pl_hub_c02d_img.jpg" alt="Photo 5">
+                  <div class="text-overlay">resort</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              new Splide('#splide', {
+                type       : 'slide',
+                perPage    : 3,
+                perMove    : 1,
+                arrows     : true,
+                autoplay   : true,
+              }).mount();
+            });
+          </script>
+      </div>
+    </section>  
+
+
+     <section class="shopByCategory">
+        <div class="shop">
+            <h2>SHOP BY CATEGORY</h2>
+
+            <ul>
+                <li><a href="#">JACKETS & COATS</a></li>
+                <li><a href="#"> POLO SHIRTS</a></li>
+                <li><a href="#">T-SHIRTS</a></li>
+                <li><a href="#">CASUAL SHIRTS</a></li>
+                <li><a href="#">BLAZERS</a></li>
+                <li><a href="#">TROUSERS</a></li>
+                <li><a href="#">SHORTS</a></li>
+            </ul>
+        </div>
+     </section>
+
+     <section class="fall2024">
+        <div class="outerbox">
+            <h3>FALL 2024</h3>
+            <div class="article">
+                <p>As leaves fall along a country road, rich textures and a refined palette embrace the simple, timeless elegance of a season in change</p>
+            </div>
+            <div class="shopnow">
+                <a href="#">SHOP NOW</a>
+                
+            </div>
+        </div>
+     </section>
+     <section class="grid">
+        <div class="parent-1">
+            <div class="div1"><h3>KENT HANDMADE WOOL-CASHMERE TOPCOAT</h3></div>
+            <div class="div2"><h3>COMING SOON</h3></div>
+        </div>
+        <div class="parent-2">
+            <div class="div3"><h3>COMING SOON</h3></div>
+            <div class="div4"><h3>COMING SOON</h3></div>
+         </div>
+     </section>
+
+     <div class="label">
+     </div>
+
+     <section class="Fall2024">
+        <div class="outerbox">
+            <h3>PRE-FALL 2024</h3>
+            <div class="article-1">
+                <p>Natural tones and timeless elegance recall a spirited Palm</p> <p>Springs sojourn, informing Ralph Lauren’s grounding</p> <p>collection of seasonless wardrobe hallmarks</p>
+            </div>
+            <div class="shopnow">
+                <a href="#">SHOP NOW</a>    
+            </div>
+        </div>
+     </section>
+
+
+     <section class="grid2">
+        <div class="parent-3">
+            <div class="div5"><h3>Kent Hand-Tailored Herringbone Jacket</h3></div>
+            <div class="div6"><h3>Glen-Plaid-Print Cashmere-Silk Tie</h3></div>
+        </div>
+        <div class="parent-4">
+            <div class="div7"><h3>End-on-End Shirt</h3></div>
+            <div class="div8"><h3>Gregory Hand-Tailored Flannel Trouser</h3></div>
+         </div>
+     </section>
+
+     <div class="label">
+    </div>
+
+     <section class="Fall-2024">
+        <div class="outerbox">
+            <h3>Accessories, Perfected</h3>
+            <div id="#letters" class="article-2">
+                <p>Timeless signatures and seasonal styles, made to</p><p>the highest standards of luxury craftsmanship
+                    Shop Now</p>
+            </div>
+            <div class="shopnow">
+                <a href="#">SHOP NOW</a>    
+            </div>
+        </div>
+     </section>
+     <div class="label-1"></div>
+    </div>
+    <footer>
+      <hr>
+      <div class="footer-content">
+          <div class="f1 list">
+              <div class="heading_footer">
+                  <h6>ABOUT</h6>
+              </div>
+              <a href="">About Us</a>
+              <a href="">Careers</a>
+              <a href="">World of RL</a>
+              <a href="">Protecting Our Brands</a>
+              <a href="">Privacy</a>
+              <a href="">Terms Of Use</a>
+              <a href="">Terms Of Sale</a>
+              <a href="">Imprint</a>
+              <a href="">Cookies</a>
+              <a href="">Manage Cookie Settings</a>
+          </div>
+          <div class="f1 list">
+              <div class="heading_footer">
+                  <h6>ACCOUNT</h6>
+              </div>
+              <a href="">My Account</a>
+              <a href="">Check Order</a>
+          </div>
+          <div class="f1 list">
+              <div class="heading_footer">
+                  <h6>CUSTOMER SERVICE</h6>
+              </div>
+              <a href="">Help</a>
+              <a href="">Shipping</a>
+              <a href="">Free Online Returns</a>
+              <a href="">Operating Guidelines</a>
+              <a href="">Sitemap</a>
+          </div>
+          <div class="f1">
+              <div class="heading_footer">
+                  <h6>Sign up to receive the latest news, special offers and/or exclusive events relating to Ralph Lauren products and services, by e-mail or targeted social media ads. By signing up, you consent to the use of tracking technologies for personalisation and analytics.</h6>
+              </div>
+              <br>
+              <div class="input-footer">
+                  <input type="text" id="input-footer" placeholder="ENTER EMAIL ADDRESS">
+                  <input type="submit">
+              </div>
+              <p>You may unsubscribe at any time by clicking on the unsubscribe link in each e-mail. For more information, please read Ralph Lauren Europe Sàrl’s <a href="">Privacy Policy.</a></p>
+          </div>
+      </div>
+      <hr>
+      <div class="social-icons">
+          <i class="ri-instagram-line"></i>
+          <i class="ri-facebook-fill"></i>
+          <i class="ri-youtube-line"></i>
+          <i class="ri-twitter-x-line"></i>
+          <i class="ri-pinterest-line"></i>
+      </div>
+      <hr>
+      <div class="copyright">
+          <p>© Copyright 2024 Ralph Lauren Media LLC</p>
+      </div>
+  </footer>
+     
+</body>
+</html>
