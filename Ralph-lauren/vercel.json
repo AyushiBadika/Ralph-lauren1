@@ -1,5 +1,8 @@
 {
-  "rewrites": [{ "source": "/", "destination": "/mohit/index.html" }],
+  "rewrites": [
+    { "source": "/", "destination": "/mohit/index.html" },
+    { "source": "/polo", "destination": "/parichay/polo/index.html" }
+  ],
   "cleanUrls": true,
   "trailingSlash": false
 }
