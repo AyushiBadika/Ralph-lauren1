@@ -1,12 +1,28 @@
 {
-  "rewrites": [
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "style.css", "use": "@vercel/static" },
+    { "src": "script.js", "use": "@vercel/static" },
+    { "src": "img/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/style.css", "dest": "/style.css" },
+    { "src": "/script.js", "dest": "/script.js" },
+    { "src": "/img/(.*)", "dest": "/img/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "headers": [
     {
-      "source": "/parichay/polo/css/(.*)",
-      "destination": "/parichay/polo/css/$1"
+      "source": "/script.js",
+      "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
     },
     {
-      "source": "/(.*)",
-      "destination": "/mohit/$1"
+      "source": "/style.css",
+      "headers": [{ "key": "Content-Type", "value": "text/css" }]
+    },
+    {
+      "source": "/img/*",
+      "headers": [{ "key": "Content-Type", "value": "image/*" }]
     }
   ]
 }
