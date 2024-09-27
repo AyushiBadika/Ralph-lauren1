@@ -6,12 +6,6 @@
     { "src": "script.js", "use": "@vercel/static" },
     { "src": "img/*", "use": "@vercel/static" }
   ],
-  "routes": [
-    { "src": "./parichay/polo/css/style.css", "dest": "./parichay/polo/css/style.css" },
-    { "src": "/script.js", "dest": "/script.js" },
-    { "src": "/img/(.*)", "dest": "/img/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ],
   "headers": [
     {
       "source": "/script.js",
